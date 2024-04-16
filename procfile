@@ -1,1 +1,1 @@
-web: gunicorne Painel:app
+web: gunicorn Painel:app
