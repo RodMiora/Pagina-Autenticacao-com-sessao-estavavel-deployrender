@@ -6,6 +6,12 @@ import pandas as pd
 from supabase import create_client, Client
 from config import SUBABASE_URL, SUBABASE_API_KEY
 from streamlit_option_menu import option_menu 
+import os
+
+# definindo porta de acesso para o Render
+host = '0.0.0.0'
+port = int(os.environ.get('PORT', 10000)) # O Render define a variável PORT
+app.run(host=host, port=port)
 
 # Importando Banco de Dados do SupaBase através de uma variável de ambiente permanente
 supabase: Client = create_client(SUBABASE_URL, SUBABASE_API_KEY)
