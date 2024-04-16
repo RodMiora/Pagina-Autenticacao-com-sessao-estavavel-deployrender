@@ -6,11 +6,6 @@ import pandas as pd
 from supabase import create_client, Client
 from config import SUBABASE_URL, SUBABASE_API_KEY
 from streamlit_option_menu import option_menu 
-import os
-
-
-# A porta padrão do Streamlit é 8501, mas você pode configurar para usar a variável de ambiente PORT
-port = int(os.environ.get("PORT", 8501))
 
 
 # Importando Banco de Dados do SupaBase através de uma variável de ambiente permanente
