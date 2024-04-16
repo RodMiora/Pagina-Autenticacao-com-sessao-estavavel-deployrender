@@ -8,10 +8,10 @@ from config import SUBABASE_URL, SUBABASE_API_KEY
 from streamlit_option_menu import option_menu 
 import os
 
-# definindo porta de acesso para o Render
-host = '0.0.0.0'
-port = int(os.environ.get('PORT', 10000)) # O Render define a variável PORT
-app.run(host=host, port=port)
+
+# A porta padrão do Streamlit é 8501, mas você pode configurar para usar a variável de ambiente PORT
+port = int(os.environ.get("PORT", 8501))
+
 
 # Importando Banco de Dados do SupaBase através de uma variável de ambiente permanente
 supabase: Client = create_client(SUBABASE_URL, SUBABASE_API_KEY)
