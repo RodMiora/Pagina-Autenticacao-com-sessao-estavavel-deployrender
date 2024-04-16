@@ -24,7 +24,7 @@ st.set_page_config(page_title="Sua Sala", page_icon=":bar_chart:", layout="wide"
 
 # Carregando o arquivo de configuração YAML
 try:
-    with open('C:/Users/a/Desktop/projeto pagina autenticação/nova_tentativa/config.yaml') as file:
+    with open('config.yaml') as file:
         config = yaml.safe_load(file)
 except FileNotFoundError:
     print("O arquivo YAML não foi encontrado.")
