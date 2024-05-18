@@ -43,14 +43,17 @@ if config is not None:
 else:
     print("Falha ao carregar o arquivo YAML.")
 
-# Inicializando o objeto de autenticação com a classe correta
-authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
+# Verificando se o arquivo de configuração foi carregado corretamente e se as chaves esperadas estão presentes
+if config is not None and 'credentials' in config and 'cookie' in config and 'name' in config['cookie'] and 'key' in config['cookie'] and 'expiry_days' in config['cookie'] and 'preauthorized' in config:
+    authenticator = stauth.Authenticate(
+        config['credentials'],
+        config['cookie']['name'],
+        config['cookie']['key'],
+        config['cookie']['expiry_days'],
+        config['preauthorized']
+    )
+else:
+    st.error('Erro ao carregar as configurações de autenticação.')
 
 # Processo de login
 name, authentication_status, username = authenticator.login(
